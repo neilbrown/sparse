@@ -151,6 +151,7 @@ static void examine_symbol(struct symbol *sym)
 		sym->kind = 'e';
 	case SYM_PTR:
 	case SYM_TYPEOF:
+	case SYM_RESTRICT:
 	case SYM_BITFIELD:
 	case SYM_FN:
 	case SYM_ARRAY:

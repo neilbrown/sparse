@@ -1009,7 +1009,8 @@ static struct symbol *evaluate_compare(struct expression *expr)
 	if (is_type_type(ltype) && is_type_type(rtype))
 		goto OK;
 
-	if (is_safe_type(left->ctype) || is_safe_type(right->ctype))
+	if ((is_safe_type(left->ctype) && is_null_pointer_constant(right)) ||
+	    (is_safe_type(right->ctype) && is_null_pointer_constant(left)))
 		warning(expr->pos, "testing a 'safe expression'");
 
 	/* number on number */

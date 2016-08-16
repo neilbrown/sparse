@@ -2903,7 +2903,7 @@ static struct symbol *evaluate_call(struct expression *expr)
 		if (evaluate_symbol_call(expr))
 			return expr->ctype;
 	}
-	expr->ctype = ctype->ctype.base_type;
+	expr->ctype = convert_to_as_mod(ctype->ctype.base_type, ctype->ctype.as, ctype->ctype.modifiers);
 	return expr->ctype;
 }
 

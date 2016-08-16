@@ -1375,7 +1375,7 @@ static int check_assignment_types(struct symbol *target, struct expression **rp,
 			goto Cast;
 		}
 		/* It's OK if the target is more volatile or const than the source */
-		*typediff = type_difference(&t->ctype, &s->ctype, 0, mod1);
+		*typediff = type_difference(&t->ctype, &s->ctype, MOD_SAFE, mod1|MOD_SAFE);
 		if (*typediff)
 			return 0;
 		return 1;
